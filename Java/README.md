@@ -4,7 +4,8 @@
  
  -1- Download The project from the repository.
  -2- Open Eclipse and import the project As maven project.
-  ** configure Maven if it is already configured
- -3- Right clic to the project and choose Run As "Java Application" , choose the main class "TexttestFixture".
- -4- To test the managment rules you should run the test class named "GildedRoseTest".
+  ** configure Maven if it is not already configured
+ -3- Right clic to the project and choose Run As "Java Application" 
+ -4- choose the main class "TexttestFixture".
+ -5- To test the managment rules you should run the test class named "GildedRoseTest".
  
