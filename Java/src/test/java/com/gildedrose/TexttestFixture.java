@@ -4,15 +4,15 @@ public class TexttestFixture {
     public static void main(String[] args) {
 
         Item[] items = new Item[] {
-                new Item(Utils.dexteriry, 10, 20), //
-                new Item(Utils.agedBrie, 2, 0), //
-                new Item(Utils.elexir, 5, 7), //
-                new Item(Utils.sulfuras, 0, 80), //
-                new Item(Utils.sulfuras, -1, 80),
-                new Item(Utils.backStage, 15, 20),
-                new Item(Utils.backStage, 10, 49),
-                new Item(Utils.backStage, 5, 49),
-                new Item(Utils.conjured, 3, 6) };
+                new Item(Utils.DexteriryItem, 10, 20), //
+                new Item(Utils.AgedBrieItem, 2, 0), //
+                new Item(Utils.ElexirItem, 5, 7), //
+                new Item(Utils.SulfurasItem, 0, 80), //
+                new Item(Utils.SulfurasItem, -1, 80),
+                new Item(Utils.BackStageItem, 15, 20),
+                new Item(Utils.BackStageItem, 10, 49),
+                new Item(Utils.BackStageItem, 5, 49),
+                new Item(Utils.ConjuredItem, 3, 6) };
 
         GildedRose app = new GildedRose(items);
 
