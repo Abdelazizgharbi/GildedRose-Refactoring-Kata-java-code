@@ -11,10 +11,10 @@ public class GildedRoseTest {
 	 */
 	@Test
 	public void firstTest() {
-		Item[] items = new Item[] { new Item(Utils.backStage, 0, 0) };
+		Item[] items = new Item[] { new Item(Utils.BackStageItem, 0, 0) };
 		GildedRose app = new GildedRose(items);
 		app.updateQuality();
-		assertEquals(Utils.backStage, app.items[0].name);
+		assertEquals(Utils.BackStageItem, app.items[0].name);
 	}
 
 	/**
@@ -22,9 +22,9 @@ public class GildedRoseTest {
 	 */
 	@Test
 	public void testBeforeSellDate() {
-		Item[] items = new Item[] { new Item(Utils.agedBrie, 2, 2), new Item(Utils.sulfuras, -1, 80),
-				new Item(Utils.backStage, 15, 20), new Item(Utils.backStage, 9, 20), new Item(Utils.backStage, 4, 20),
-				new Item(Utils.dexteriry, 3, 2), new Item(Utils.conjured, 3, 2) };
+		Item[] items = new Item[] { new Item(Utils.AgedBrieItem, 2, 2), new Item(Utils.SulfurasItem, -1, 80),
+				new Item(Utils.BackStageItem, 15, 20), new Item(Utils.BackStageItem, 9, 20), new Item(Utils.BackStageItem, 4, 20),
+				new Item(Utils.DexteriryItem, 3, 2), new Item(Utils.ConjuredItem, 3, 2) };
 
 		GildedRose app = new GildedRose(items);
 		app.updateQuality();
@@ -43,8 +43,8 @@ public class GildedRoseTest {
 	 */
 	@Test
 	public void testAfterSellDate() {
-		Item[] items = new Item[] { new Item(Utils.agedBrie, 0, 2), new Item(Utils.sulfuras, -1, 80),
-				new Item(Utils.backStage, 0, 2), new Item(Utils.dexteriry, 0, 3), new Item(Utils.conjured, 0, 2) };
+		Item[] items = new Item[] { new Item(Utils.AgedBrieItem, 0, 2), new Item(Utils.SulfurasItem, -1, 80),
+				new Item(Utils.BackStageItem, 0, 2), new Item(Utils.DexteriryItem, 0, 3), new Item(Utils.ConjuredItem, 0, 2) };
 
 		GildedRose app = new GildedRose(items);
 		app.updateQuality();
