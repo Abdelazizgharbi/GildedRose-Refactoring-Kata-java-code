@@ -1,6 +1,7 @@
 package com.gildedrose;
 
 class GildedRose {
+
 	Item[] items;
 
 	public GildedRose(Item[] items) {
@@ -11,10 +12,8 @@ class GildedRose {
 	 * Global method to update items's quality based to date and types
 	 */
 	public void updateQuality() {
-
 		for (int i = 0; i < items.length; i++) {
-
-			if (!items[i].name.equals(Utils.sulfuras)) {
+			if (!items[i].name.equals(Utils.SulfurasItem)) {
 				caseBeforeDate(items[i]);
 				items[i].sellIn = items[i].sellIn - 1;
 				if (items[i].sellIn < 0) {
@@ -26,45 +25,47 @@ class GildedRose {
 
 	/**
 	 * To handle the case before the Sell date passed
+	 * 
 	 * @param item
 	 */
-	public void caseBeforeDate(Item item) {
-
-		if (item.name.equals(Utils.backStage)) {
-			increase(item);
+	private void caseBeforeDate(Item item) {
+		
+		switch (item.name) {
+		case Utils.BackStageItem:
+			increase(item, 50);
 			if (item.sellIn < 11) {
-				increase(item);
+				increase(item, 50);
 			}
 			if (item.sellIn < 6) {
-				 increase(item);
+				increase(item, 50);
 			}
-		} else if (item.name.equals(Utils.agedBrie)) {
-			increase(item);
-		} else {
-			decrease(item);
-		}
-		// case when conjured item
-		if (item.name.equals(Utils.conjured)) {
-			decrease(item);
+			break;
+		case Utils.AgedBrieItem:
+			increase(item, 50);
+			break;
+		case Utils.ConjuredItem:
+			decrease(item, 0);
+		default :decrease(item, 0);
 		}
 	}
 
 	/**
-	 *  To handle the case when the Sell date passed
+	 * To handle the case when the Sell date passed
+	 * 
 	 * @param item
 	 */
-	public void caseAfterDate(Item item) {
+	private void caseAfterDate(Item item) {
 
-		if (item.name.equals(Utils.backStage)) {
+		switch (item.name) {
+		case Utils.BackStageItem:
 			item.quality = 0;
-		} else if (item.name.equals(Utils.agedBrie)) {
-			 increase(item);
-		} else {
-			 decrease(item);
-		}
-		// case when conjured item
-		if (item.name.equals(Utils.conjured)) {
-			decrease(item);
+			break;
+		case Utils.AgedBrieItem:
+			increase(item, 50);
+			break;
+		case Utils.ConjuredItem:
+			decrease(item, 0);
+		default :decrease(item, 0);
 		}
 	}
 
@@ -74,8 +75,8 @@ class GildedRose {
 	 * @param item
 	 * @return
 	 */
-	public void decrease(Item item) {
-		if (item.quality > 0) {
+	private void decrease(Item item, int bornInf) {
+		if (item.quality > bornInf) {
 			item.quality = item.quality - 1;
 		}
 	}
@@ -86,8 +87,8 @@ class GildedRose {
 	 * @param item
 	 * @return
 	 */
-	public void increase(Item item) {
-		if (item.quality < 50) {
+	private void increase(Item item, int bornSup) {
+		if (item.quality < bornSup) {
 			item.quality = item.quality + 1;
 		}
 	}
